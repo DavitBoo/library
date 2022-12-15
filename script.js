@@ -12,7 +12,7 @@ const readYes = document.getElementById('yes')
 const readNo = document.getElementById('no')
 
 let deleteBook = document.querySelectorAll('.delete-book')
-
+let changeIfRead = document.querySelectorAll('.icon-read')
 
 
 let myLibrary = [
@@ -52,7 +52,7 @@ function searchInMyLibrary(){
             <p>${book.title}</p>
             <p>${book.author}</p>
             <p>${book.pages} pages</p>
-            <p>${book.read ? 'Already read it' : 'Not read it yet'}</p>
+            <p>${book.read ? `Already read it <img data-read="${i}" class="icon-read already-read" src="svg/check-bold.svg"></img>` : `not read it yet <img data-read="${i}" class="icon-read not-yet" src="svg/book-open-variant.svg"></img>`} </p>
         </div>`;
         return acc;
     }, '');
@@ -69,6 +69,14 @@ function updateLibrary(){
             removeLibrary(element.dataset.id)
         })
     })   
+
+    changeIfRead = document.querySelectorAll('.icon-read')
+    changeIfRead.forEach(element => {
+        element.addEventListener('click', () => {
+            changeReadState(element.dataset.read);
+        })
+    });
+
 }
 
 
@@ -76,6 +84,12 @@ function removeLibrary(index){
     console.log(myLibrary[index])
     myLibrary.splice(index, 1); 
     gridContainer.innerHTML = searchInMyLibrary();
+    updateLibrary();
+}
+
+function changeReadState(index){
+    let readState = myLibrary[index].read
+    myLibrary[index].read = readState ? false : true;
     updateLibrary();
 }
 

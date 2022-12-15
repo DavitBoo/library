@@ -109,6 +109,15 @@ h1{
     cursor: pointer;
 }
 
+.icon-read{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
 
 /*js styles */
 
