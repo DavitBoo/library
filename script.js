@@ -32,7 +32,7 @@ let myLibrary = [
         title: 'Creatividad y plenitud de Vida',
         author: 'Antonio Blay Fontcuberta',
         pages: 301,
-        read: false
+        read: true
     },
     {
         title: 'La muerte en Venecia',
@@ -83,8 +83,9 @@ function addBookToLibrary() {
     let titleValue = titleInput.value
     let authorValue = authorInput.value
     let pagesValue = pagesInput.value
-    let readValue = readYes.value ? true : false
+    let readValue = readYes.checked ? true : false
     
+    console.log(readYes)
     console.log(titleValue, authorValue, pagesValue, readValue)
     let newBook = new Book(titleValue, authorValue, pagesValue, readValue)
     console.log(newBook)
