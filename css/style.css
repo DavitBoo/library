@@ -21,6 +21,8 @@ body{
 
 p, h1, h2{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 h1{
@@ -28,18 +30,44 @@ h1{
     color: var(--green-200);
 }
 
+.d-flex{
+    display: flex;
+    align-content: center;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background-color: #000000AA;
+}
+
 .grid-container{
     width: 80vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 30%));
     gap: 45px;
 }
 
 .book-container{
     background-color: var(--green-600);
+    position: relative;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 2rem 0 2rem;
 }
 
+.delete-book{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
 
 
 .add-new-book{
@@ -55,6 +83,7 @@ h1{
     background-color: var(--green-400);
     padding: 4rem;
     border-radius: 8px;
+    z-index: 20;
 }
 
 .form-container > form{

@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="css/skeleton.css">
 </head>
 <body>
+    <div class="overlay hide"></div>
     <h1>Library</h1>
     <div class="grid-container">
         <div class="book-container">
-            <p>titulo</p>
+            <svg class="remove-book" style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8.46,11.88L9.87,10.47L12,12.59L14.12,10.47L15.53,11.88L13.41,14L15.53,16.12L14.12,17.53L12,15.41L9.88,17.53L8.47,16.12L10.59,14L8.46,11.88M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" />
+            </svg>
+            <p>title</p>
+            <p>author</p>
+            <p>300 pages</p>
+            <p>read it</p>
         </div>
-        <div class="book-container">
-            <p>titulo</p>
-        </div>
+        
     </div>
     <div class="add-new-book" id="add-new">
         <button class="button-primary">Add new book</button>
@@ -32,10 +37,14 @@
             <input type="text" name="image-url" id="image-url">
             <label for="">Page number</label>
             <input type="text" name="pages" id="pages">
-            <label for="read-it">Have you read it?</label>
-            <input type="radio" name="read" id="read-it" value="true"> Yes
-            <input type="radio" name="read" id="read-it" value="false"> No
-            <br>
+            <label for="read">Have you read it?</label>
+            <label for="yes">
+                <input type="radio" name="read" id="yes" value="yes"> 
+            Yes</label>
+            <label for="no">
+                <input checked="checked" type="radio" name="read" id="no" value="no">
+            No</label>
+            
             <input type="submit" id="add-new-btn" value="Add new">
         </form>
         <svg id="close-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
