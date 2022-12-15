@@ -3,11 +3,13 @@ const addNewForm = document.querySelector('.form-container')
 const addNew = document.getElementById('add-new')
 const overlay = document.querySelector('.overlay')
 const gridContainer = document.querySelector('.grid-container')
+const closeBtn = document.getElementById('close-btn')
 
 //form values
 const titleInput = document.getElementById('title')
 const authorInput = document.getElementById('author')
 const pagesInput = document.getElementById('pages')
+const imgUrlInput = document.getElementById('image-url')
 const readYes = document.getElementById('yes')
 const readNo = document.getElementById('no')
 
@@ -20,25 +22,29 @@ let myLibrary = [
         title: 'Creatividad y plenitud de Vida',
         author: 'Antonio Blay Fontcuberta',
         pages: 301,
-        read: false
+        read: false,
+        image: 'https://pictures.abebooks.com/isbn/9788470822773-es.jpg'
     },
     {
         title: 'La muerte en Venecia',
         author: 'Thomas Man',
         pages: 142,
-        read: false
+        read: false,
+        image: 'https://www.cicutadry.es/wp-content/uploads/2013/09/026.La-muerte-en-venecia.jpg'
     },
     {
-        title: 'Creatividad y plenitud de Vida',
-        author: 'Antonio Blay Fontcuberta',
-        pages: 301,
-        read: true
+        title: 'El poder de los 5 segundo',
+        author: 'Mel Robbins',
+        pages: 257,
+        read: false,
+        image: 'https://pictures.abebooks.com/isbn/9788448024185-es.jpg'
     },
     {
-        title: 'La muerte en Venecia',
-        author: 'Thomas Man',
-        pages: 142,
-        read: false
+        title: 'El guardian entre el centeneno',
+        author: 'J.D. Salinger',
+        pages: 279,
+        read: true,
+        image: 'https://pictures.abebooks.com/inventory/30305197709.jpg'
     },
 ];
 
@@ -49,7 +55,8 @@ function searchInMyLibrary(){
             <svg class="delete-book" data-id="${i}" style="width:24px;height:24px" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8.46,11.88L9.87,10.47L12,12.59L14.12,10.47L15.53,11.88L13.41,14L15.53,16.12L14.12,17.53L12,15.41L9.88,17.53L8.47,16.12L10.59,14L8.46,11.88M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" />
             </svg>
-            <p>${book.title}</p>
+            <img class="book-image" src="${book.image}" alt="">
+            <h2 class="title">${book.title}</h2>
             <p>${book.author}</p>
             <p>${book.pages} pages</p>
             <p>${book.read ? `Already read it <img data-read="${i}" class="icon-read already-read" src="svg/check-bold.svg"></img>` : `not read it yet <img data-read="${i}" class="icon-read not-yet" src="svg/book-open-variant.svg"></img>`} </p>
@@ -97,11 +104,11 @@ function addBookToLibrary() {
     let titleValue = titleInput.value
     let authorValue = authorInput.value
     let pagesValue = pagesInput.value
+    let imgUrlValue = imgUrlInput.value
     let readValue = readYes.checked ? true : false
     
     console.log(readYes)
-    console.log(titleValue, authorValue, pagesValue, readValue)
-    let newBook = new Book(titleValue, authorValue, pagesValue, readValue)
+    let newBook = new Book(titleValue, authorValue, pagesValue, imgUrlValue, readValue)
     console.log(newBook)
     myLibrary.push(newBook)
     updateLibrary();
@@ -135,14 +142,19 @@ overlay.addEventListener('click', () => {
     }
 })
 
-function Book(title, author, pages, read) {
+closeBtn.addEventListener('click', () => {
+    if(!overlay.classList.contains('hide')){
+        addNewForm.classList.add('hide')
+        overlay.classList.add('hide')
+    }
+})
+
+function Book(title, author, pages, urlImage, read ) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function () {
-       return `The ${title} by ${author}, ${pages} pages, ${read ? `already read` : `not read yet`}`
-    }
+    this.image = urlImage
 }
 
 

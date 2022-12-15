@@ -49,8 +49,10 @@ h1{
     width: 80vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 30%));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 25%));
     gap: 45px;
+    justify-content: center;
+
 }
 
 .book-container{
@@ -58,8 +60,31 @@ h1{
     position: relative;
     display: grid;
     justify-content: center;
+    justify-items: center;
     text-align: center;
     padding: 1rem 2rem 0 2rem;
+}
+
+.book-image{
+    max-height: 300px;
+    margin-bottom: 30px;
+}
+
+.title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--green-200);
+    margin-bottom: 15px;  
+}
+
+.grid-container > div > p{
+    margin: 0;
+    color: var(--green-100)
+}
+
+
+.grid-container > div > p:last-child{
+    margin-bottom: 30px;
 }
 
 .delete-book{
@@ -67,6 +92,23 @@ h1{
     top: 0;
     right: 0;
     cursor: pointer;
+}
+
+.delete-book:hover{
+    opacity: 0.7;
+}
+
+.icon-read{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.icon-read:hover{
+    opacity: 0.7;
 }
 
 
@@ -90,6 +132,7 @@ h1{
     position: relative;
 }
 
+
 #add-new-btn{
     color: #000;
     border-color: #000;
@@ -109,14 +152,7 @@ h1{
     cursor: pointer;
 }
 
-.icon-read{
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    bottom: 2%;
-    right: 2%;
-    cursor: pointer;
-}
+
 
 
 /*js styles */
