@@ -149,12 +149,14 @@ closeBtn.addEventListener('click', () => {
     }
 })
 
-function Book(title, author, pages, urlImage, read ) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.image = urlImage
+class Book {
+    constructor(title, author, pages, urlImage, read ){
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.image = urlImage
+    }
 }
 
 
