@@ -48,6 +48,7 @@ h1{
 .grid-container{
     width: 80vw;
     margin: 0 auto;
+    margin-bottom: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 25%));
     gap: 45px;
@@ -116,7 +117,15 @@ h1{
 
 .add-new-book{
     margin-top: 8vh;
-    text-align: center;
+    /* text-align: center; */
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-new-book button {
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.311);
 }
 
 .form-container{
@@ -165,3 +174,8 @@ h1{
     top: 0;
     right: 0;
 }
+
+
+.error:after {
+    content: 'This is missing *';
+    color:#900}

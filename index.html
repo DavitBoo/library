@@ -29,14 +29,14 @@
     </div>
     <div class="hide form-container">
         <form action="">
-            <label for="">Title of the book</label>
-            <input type="text" name="title" id="title">
-            <label for="">Author of the book</label>
-            <input type="text" name="author" id="author">
-            <label for="">Image of the book (optional)</label>
+            <label for="title">Title of the book</label>
+            <input required type="text" name="title" id="title">
+            <label for="author">Author of the book</label>
+            <input required type="text" name="author" id="author">
+            <label for="image-url">Image of the book (optional)</label>
             <input type="text" name="image-url" id="image-url">
-            <label for="">Page number</label>
-            <input type="text" name="pages" id="pages">
+            <label for="pages">Page number</label>
+            <input required type="text" name="pages" id="pages">
             <label for="read">Have you read it?</label>
             <label for="yes">
                 <input type="radio" name="read" id="yes"> 
@@ -50,7 +50,7 @@
         <svg id="close-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
         <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /> 
         </svg>
-    </div>
+    </div> 
     <script src="script.js"></script>
 </body>
 </html>

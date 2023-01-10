@@ -120,12 +120,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 addNewBtn.addEventListener('click', (e) => {
-    addNewForm.classList.add('hide')
-    overlay.classList.add('hide')
-
-    addBookToLibrary();
-
+    
+    if(validForm()){
+        addNewForm.classList.add('hide')
+        overlay.classList.add('hide')
+        
+        addBookToLibrary();
+    }
     e.preventDefault();
+    
 })
 
 
@@ -162,6 +165,39 @@ class Book {
 
 
 
+let titleLabel = document.querySelector('label[for=title]')
+let authorLabel = document.querySelector('label[for=author]')
+let imageUrlLabel = document.querySelector('label[for=image-url]')
+let pagesLabel = document.querySelector('label[for=pages]')
+
+console.log(titleLabel)
+
+const validForm = () =>  {
+
+    console.log(!titleInput.validity.valueMissing)
+    if(titleInput.validity.valueMissing) {
+        titleLabel.classList.add('error')
+        titleInput.setCustomValidity("I am expecting an email address!");
+        return false
+    }
+
+    titleLabel.classList.remove('error')
+    if(authorInput.validity.valueMissing) {
+        authorLabel.classList.add('error')
+        return false
+    }
+
+    authorLabel.classList.remove('error')
+    if(pagesInput.validity.valueMissing) 
+    {   
+        pagesLabel.classList.add('error')
+        return false
+    }
+
+    pagesLabel.classList.remove('error')
+   
+    return true
+}
 
 
 
